@@ -34,7 +34,7 @@ Array.from(roomCards).forEach(room => {
 
 
 function addToRoomCards() {
-    if(todayOccupied.length !== 0 && todayData.length !== 0) {
+    if(todayOccupied.length == 6 && todayData.room1) {
         Array.from(roomCards).forEach(room => {
             let isBooked;
             let isOccupied;
