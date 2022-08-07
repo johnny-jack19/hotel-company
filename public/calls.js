@@ -13,7 +13,7 @@ function makeNewCustomer(store, customer) {
     })
     .then(res => res.json())
     .then(data => {
-        store['customer-id'] = data.results[0];
+        store['customerId'] = data.results[0];
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -191,7 +191,7 @@ function getCalendarData(store) {
         for (day of data) {
             let booked = 0;
             for (let i = 1; i <= 6; i++) {
-                if (day[`room-${i}`] != 0) {
+                if (day[`room${i}`] != 0) {
                     booked++;
                 }
             }
@@ -216,7 +216,7 @@ function getOccupied(store) {
     .then(res => res.json())
     .then(data => {
         for (let i = 1; i <= 6; i++) {
-            store.push(data[0][i]);
+            store.push(data[0][`room${i}`]);
         }
     })
     .catch((error) => {

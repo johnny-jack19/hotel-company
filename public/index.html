@@ -23,12 +23,12 @@
     <div id="today" class="tab">
         <h2>Today</h2>
         <div id="today-page">
-            <div class="room-card" id="room-1"></div>
-            <div class="room-card" id="room-2"></div>
-            <div class="room-card" id="room-3"></div>
-            <div class="room-card" id="room-4"></div>
-            <div class="room-card" id="room-5"></div>
-            <div class="room-card" id="room-6"></div>
+            <div class="room-card" id="room1"></div>
+            <div class="room-card" id="room2"></div>
+            <div class="room-card" id="room3"></div>
+            <div class="room-card" id="room4"></div>
+            <div class="room-card" id="room5"></div>
+            <div class="room-card" id="room6"></div>
         </div>
     </div>
     <!-- *********************************************Calendar***************************************** -->
@@ -74,15 +74,15 @@
         </div>
         <form id="booking-form" onsubmit="confirmBooking();return false">
             <fieldset>
-                <input type="radio" id="single-queen" value="single-queen" name="bed">
+                <input type="radio" id="single-queen" value="singleQueen" name="bed">
                 <label for="single-queen" class="form-3" id="single-queen-label">
                     Single Queen
                 </label>
-                <input type="radio" id="double-queen" value="double-queen" name="bed">
+                <input type="radio" id="double-queen" value="doubleQueen" name="bed">
                 <label for="double-queen" class="form-3" id="double-queen-label">
                     Double Queen
                 </label>
-                <input type="radio" id="single-king" value="single-king" name="bed">
+                <input type="radio" id="single-king" value="singleKing" name="bed">
                 <label for="single-king" class="form-3" id="single-king-label">
                     Single King
                 </label>
@@ -146,7 +146,7 @@
                 Search field
                 <select name="booking-field" id="booking-field">
                     <option value="id">Booking ID</option>
-                    <option value="booking.customer-id">Customer ID</option>
+                    <option value="booking.customerId">Customer ID</option>
                     <option value="email">Email</option>
                     <option value="name">Name</option>
                     <option value="phone">Phone</option>

@@ -1,7 +1,7 @@
 //********************************************Today************************************************
 //Today varibles-----------------------------------------------------------------------------------
-const roomIndex = {'room-1': {index: 0,type: 'single-queen'},'room-2': {index: 1,type: 'single-queen'},'room-3': {index: 2,type: 'double-queen'},
-'room-4': {index: 3,type: 'double-queen'},'room-5': {index: 4,type: 'single-king'},'room-6': {index: 5,type: 'single-king'}};
+const roomIndex = {'room1': {index: 0,type: 'singleQueen'},'room2': {index: 1,type: 'singleQueen'},'room3': {index: 2,type: 'doubleQueen'},
+'room4': {index: 3,type: 'doubleQueen'},'room5': {index: 4,type: 'singleKing'},'room6': {index: 5,type: 'singleKing'}};
 const todayOccupied = [];
 const todayData = {};
 const today = new Date();
@@ -135,19 +135,18 @@ function modalCheckIn() {
         </div>
         <div class="customer-info-row">
             <div>Email: ${customerInfo.email}</div>
-            <div>Cost: $${customerInfo['total-cost'].toFixed(2)}</div>
+            <div>Cost: $${customerInfo['totalCost'].toFixed(2)}</div>
         </div>
         <div class="customer-info-row">
-            <div>Check-In Date: ${customerInfo['check-in']}</div>
-            <div>Check-Out Date: ${customerInfo['check-out']}</div>
+            <div>Check-In Date: ${customerInfo['checkIn']}</div>
+            <div>Check-Out Date: ${customerInfo['checkOut']}</div>
         </div>
         <button onclick="checkIn()" class="customer-info-button">Confirm</button>
         `), 1000);});
 }
-
 //Modal > Room > Check-in > Confirm
 function checkIn() {
-    updateOccupied(roomIndex[currentRoom].index + 1, todayData[currentRoom]);
+    updateOccupied(`room${roomIndex[currentRoom].index + 1}`, todayData[currentRoom]);
     modal.innerHTML = (`
     <button class="close" onclick="closeModal()">X</button>
     <h3>Room ${roomIndex[currentRoom].index + 1}</h3>
@@ -178,11 +177,11 @@ function modalCheckOut() {
         </div>
         <div class="customer-info-row">
             <div>Email: ${customerInfo.email}</div>
-            <div>Cost: $${customerInfo['total-cost'].toFixed(2)}</div>
+            <div>Cost: $${customerInfo['totalCost'].toFixed(2)}</div>
         </div>
         <div class="customer-info-row">
-            <div>Check-In Date: ${customerInfo['check-in']}</div>
-            <div>Check-Out Date: ${customerInfo['check-out']}</div>
+            <div>Check-In Date: ${customerInfo['checkIn']}</div>
+            <div>Check-Out Date: ${customerInfo['checkOut']}</div>
         </div>
         <button onclick="checkOut()" class="customer-info-button">Confirm</button>
         `), 1000);});
@@ -190,7 +189,7 @@ function modalCheckOut() {
 
 //Modal > Room > Check-out > Confirm
 function checkOut() {
-    updateOccupied(roomIndex[currentRoom].index + 1, 0);
+    updateOccupied(`room${roomIndex[currentRoom].index + 1}`, 0);
     modal.innerHTML = (`
     <button class="close" onclick="closeModal()">X</button>
     <h3>Room ${roomIndex[currentRoom].index + 1}</h3>
@@ -274,28 +273,28 @@ function modalBook() {
 //Modal > Room > Book > Confirm
 function createCustomerAndBooking(customerInfo) {
     const billing = {
-        'first-name': customerInfo['first-name-modal'],
-        'last-name': customerInfo['last-name-modal'],
+        'firstName': customerInfo['first-name-modal'],
+        'lastName': customerInfo['last-name-modal'],
         'email': customerInfo['email-modal'],
         'phone': customerInfo['phone-modal'],
         'address': customerInfo['address-modal'],
         'city': customerInfo['city-modal'],
         'state': customerInfo['state-modal'],
         'zip': customerInfo['zip-modal'],
-        'name-on-card': customerInfo['card-name-modal'],
-        'card-number': customerInfo['card-number-modal'],
+        'nameOnCard': customerInfo['card-name-modal'],
+        'cardNumber': customerInfo['card-number-modal'],
         'cvc': customerInfo['cvc-modal'],
-        'exp-date': customerInfo['exp-date-modal']
+        'expDate': customerInfo['exp-date-modal']
     }
 
     const booking = {
         'name': `${customerInfo['first-name-modal']} ${customerInfo['last-name-modal']}`,
-        'check-in': formatDay(today),
-        'check-out': formatDay(tomorrow),
-        'number-of-days': 1,
+        'checkIn': formatDay(today),
+        'checkOut': formatDay(tomorrow),
+        'numberOfDays': 1,
         'room': roomIndex[currentRoom].index + 1,
-        'room-cost': todayData[roomIndex[currentRoom].type].toFixed(2),
-        'total-cost': (todayData[roomIndex[currentRoom].type] * 1.06 + 50).toFixed(2)
+        'roomCost': todayData[roomIndex[currentRoom].type].toFixed(2),
+        'totalCost': (todayData[roomIndex[currentRoom].type] * 1.06 + 50).toFixed(2)
     }
 
     return new Promise((resolve, reject) => {
@@ -308,11 +307,11 @@ function createCustomerAndBooking(customerInfo) {
     })
     .then(() => {
         return new Promise((resolve, reject) => {
-            setTimeout(() => resolve(addBookingToRooms(`room-${booking.room}`, booking.id, booking['check-in'], booking['check-in'])), 1000);
+            setTimeout(() => resolve(addBookingToRooms(`room${booking.room}`, booking.id, booking['checkIn'], booking['checkIn'])), 1000);
         });
     })
     .then(() => {
-        setTimeout(() => updateOccupied(booking.room, booking.id), 1000);
+        setTimeout(() => updateOccupied(`room${booking.room}`, booking.id), 1000);
     })
     .then(() => {
         setTimeout(() => {
@@ -395,9 +394,9 @@ let myRooms;
 let openRooms;
 let bedRooms = {};
 let price = {
-    'single-queen': 0,
-    'double-queen': 0,
-    'single-king': 0
+    'singleQueen': 0,
+    'doubleQueen': 0,
+    'singleKing': 0
 };
 const bookingCheckIn = document.getElementById('check-in');
 const bookingCheckOut = document.getElementById('check-out');
@@ -447,15 +446,15 @@ function getAvailability() {
 }
 
 function disableRooms() {
-    if (!bedRooms['single-queen']) {
+    if (!bedRooms['singleQueen']) {
         document.getElementById('single-queen-label').classList.add('hidden');
         document.getElementById('single-queen').disabled = true;
     }
-    if (!bedRooms['double-queen']) {
+    if (!bedRooms['doubleQueen']) {
         document.getElementById('double-queen-label').classList.add('hidden');
         document.getElementById('double-queen').disabled = true;
     }
-    if (!bedRooms['single-king']) {
+    if (!bedRooms['singleKing']) {
         document.getElementById('single-king-label').classList.add('hidden');
         document.getElementById('single-king').disabled = true;
     }
@@ -464,51 +463,51 @@ function disableRooms() {
 function checkRoomRange() {
     myRooms = [];
     openRooms = {
-        'room-1': true,
-        'room-2': true,
-        'room-3': true,
-        'room-4': true,
-        'room-5': true,
-        'room-6': true
+        'room1': true,
+        'room2': true,
+        'room3': true,
+        'room4': true,
+        'room5': true,
+        'room6': true
     };
     checkRooms(myRooms, bookingDays['check-in'], formatDay(new Date(bookingDays['check-out'])));
 }
 
 function sortRooms() {
-    price = {'single-queen': 0, 'double-queen': 0, 'single-king': 0};
+    price = {'singleQueen': 0, 'doubleQueen': 0, 'singleKing': 0};
     for (days of myRooms) {
         for (let i = 1; i < 7; i++) {
-            if (days[`room-${i}`] != 0) {
-                openRooms[`room-${i}`] = false;
+            if (days[`room${i}`] != 0) {
+                openRooms[`room${i}`] = false;
             }
         }
-        price['single-queen'] += days['single-queen'];
-        price['double-queen'] += days['double-queen'];
-        price['single-king'] += days['single-king'];
+        price['singleQueen'] += days['singleQueen'];
+        price['doubleQueen'] += days['doubleQueen'];
+        price['singleKing'] += days['singleKing'];
     }
-    bedRooms['single-queen'] = (openRooms['room-1'] || openRooms['room-2']);
-    bedRooms['double-queen'] = (openRooms['room-3'] || openRooms['room-4']);
-    bedRooms['single-king'] = (openRooms['room-5'] || openRooms['room-6']);
+    bedRooms['singleQueen'] = (openRooms['room1'] || openRooms['room2']);
+    bedRooms['doubleQueen'] = (openRooms['room3'] || openRooms['room4']);
+    bedRooms['singleKing'] = (openRooms['room5'] || openRooms['room6']);
 }
 
 function addToBooking() {
-    if (bookingInfo['bed'] === 'single-queen') {
-        bookingInfo['room-cost'] = price['single-queen'];
-        if (openRooms['room-1']) {
+    if (bookingInfo['bed'] === 'singleQueen') {
+        bookingInfo['roomCost'] = price['singleQueen'];
+        if (openRooms['room1']) {
             bookingInfo.room = 1;
         } else {
             bookingInfo.room = 2;
         }
-    } else if (bookingInfo['bed'] === 'double-queen') {
-        bookingInfo['room-cost'] = price['double-queen'];
-        if (openRooms['room-3']) {
+    } else if (bookingInfo['bed'] === 'doubleQueen') {
+        bookingInfo['roomCost'] = price['doubleQueen'];
+        if (openRooms['room3']) {
             bookingInfo.room = 3;
         } else {
             bookingInfo.room = 4;
         }
     } else {
-        bookingInfo['room-cost'] = price['single-king'];
-        if (openRooms['room-5']) {
+        bookingInfo['roomCost'] = price['singleKing'];
+        if (openRooms['room5']) {
             bookingInfo.room = 5;
         } else {
             bookingInfo.room = 6;
@@ -545,10 +544,10 @@ function confirmBooking() {
         <div>Room: ${bookingInfo.room}</div>
     </div>
     <div class="check-row">
-        <div>Room Cost: $${bookingInfo['room-cost'].toFixed(2)}</div>
-        <div>Taxes: $${(bookingInfo['room-cost'] * .06).toFixed(2)}</div>
+        <div>Room Cost: $${bookingInfo['roomCost'].toFixed(2)}</div>
+        <div>Taxes: $${(bookingInfo['roomCost'] * .06).toFixed(2)}</div>
         <div>Cleaning Fee: $50.00</div>
-        <div>Total Cost: $${(bookingInfo['room-cost'] * 1.06 + 50).toFixed(2)}</div>
+        <div>Total Cost: $${(bookingInfo['roomCost'] * 1.06 + 50).toFixed(2)}</div>
     </div>
     <div class="button-row">
         <button onclick="createNewBooking()">Confirm</button>
@@ -561,28 +560,28 @@ function confirmBooking() {
 
 function createNewBooking() {
     const billing = {
-        'first-name': bookingInfo['first-name'],
-        'last-name': bookingInfo['last-name'],
+        'firstName': bookingInfo['first-name'],
+        'lastName': bookingInfo['last-name'],
         'email': bookingInfo['email'],
         'phone': bookingInfo['phone'],
         'address': bookingInfo['address'],
         'city': bookingInfo['city'],
         'state': bookingInfo['state'],
         'zip': bookingInfo['zip'],
-        'name-on-card': bookingInfo['card-name'],
-        'card-number': bookingInfo['card-number'],
+        'nameOnCard': bookingInfo['card-name'],
+        'cardNumber': bookingInfo['card-number'],
         'cvc': bookingInfo['cvc'],
-        'exp-date': bookingInfo['exp-date']
+        'expDate': bookingInfo['exp-date']
     }
 
     const booking = {
         'name': `${bookingInfo['first-name']} ${bookingInfo['last-name']}`,
-        'check-in': bookingDays['check-in'],
-        'check-out': bookingDays['check-out'],
-        'number-of-days': ((new Date(bookingDays['check-out']) - new Date(bookingDays['check-in'])) / 1000 / 60 / 60 / 24),
+        'checkIn': bookingDays['check-in'],
+        'checkOut': bookingDays['check-out'],
+        'numberOfDays': ((new Date(bookingDays['check-out']) - new Date(bookingDays['check-in'])) / 1000 / 60 / 60 / 24),
         'room': bookingInfo.room,
-        'room-cost': bookingInfo['room-cost'],
-        'total-cost': (bookingInfo['room-cost'] * 1.06 + 50).toFixed(2)
+        'roomCost': bookingInfo['roomCost'],
+        'totalCost': (bookingInfo['roomCost'] * 1.06 + 50).toFixed(2)
     }
 
     return new Promise((resolve, reject) => {
@@ -595,7 +594,7 @@ function createNewBooking() {
     })
     .then(() => {
         return new Promise((resolve, reject) => {
-            setTimeout(() => resolve(addBookingToRooms(`room-${booking.room}`, booking.id, booking['check-in'], formatDay(new Date(booking['check-out'])))), 1000);
+            setTimeout(() => resolve(addBookingToRooms(`room${booking.room}`, booking.id, booking['checkIn'], formatDay(new Date(booking['checkOut'])))), 1000);
         })
     })
     .then(() => {
@@ -639,22 +638,22 @@ function testLookUp(lookUpStore) {
         modal.classList.remove('hidden');
     } else {
         document.getElementById('look-up-data').innerHTML = (`
-            <p>First Name: ${lookUpStore['first-name']}</p>
-            <p>Last Name: ${lookUpStore['last-name']}</p>
-            <p>Check-In: ${lookUpStore['check-in']}</p>
-            <p>Check-Out: ${lookUpStore['check-out']}</p>
+            <p>First Name: ${lookUpStore['firstName']}</p>
+            <p>Last Name: ${lookUpStore['lastName']}</p>
+            <p>Check-In: ${lookUpStore['checkIn']}</p>
+            <p>Check-Out: ${lookUpStore['checkOut']}</p>
             <p>Room: ${lookUpStore['room']}</p>
-            <p>Total Cost: $${lookUpStore['total-cost'].toFixed(2)}</p>
+            <p>Total Cost: $${lookUpStore['totalCost'].toFixed(2)}</p>
             <p>Phone: ${lookUpStore['phone']}</p>
             <p>Email: ${lookUpStore['email']}</p>
             <p>Address: ${lookUpStore['address']}</p>
             <p>City: ${lookUpStore['city']}</p>
             <p>Zip Code: ${lookUpStore['zip']}</p>
             <p>State: ${lookUpStore['state']}</p>
-            <p>Name on Card: ${lookUpStore['name-on-card']}</p>
-            <p>Card Number: ${lookUpStore['card-number']}</p>
+            <p>Name on Card: ${lookUpStore['nameOnCard']}</p>
+            <p>Card Number: ${lookUpStore['cardNumber']}</p>
             <p>CVC: ${lookUpStore['cvc']}</p>
-            <p>Expiration Date: ${lookUpStore['exp-date']}</p>
+            <p>Expiration Date: ${lookUpStore['expDate']}</p>
             <button id="delete" onclick="deleteEntry()" class="delete">Delete Entry</button>
         `)
     }
@@ -674,7 +673,7 @@ function deleteEntry() {
 
 function confirmDeletion() {
     return new Promise((resolve, reject) => {
-        return resolve(deleteBookingFromRooms(`room-${lookUpStore['room']}`, lookUpStore['id']));
+        return resolve(deleteBookingFromRooms(`room${lookUpStore['room']}`, lookUpStore['id']));
     })
     .then(() => {
         return new Promise((resolve, reject) => {
@@ -683,7 +682,7 @@ function confirmDeletion() {
     })
     .then(() => {
         return new Promise((resolve, reject) => {
-            setTimeout(() => resolve(delBilling(lookUpStore['customer-id'])), 1000);
+            setTimeout(() => resolve(delBilling(lookUpStore['customerId'])), 1000);
         });
     })
     .then(() => {
