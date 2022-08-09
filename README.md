@@ -14,6 +14,8 @@ The three parts are hosted on Github and Heroku. The links can be found here:
 [4]: http://jackson-hotel-company.herokuapp.com/ "Company Website"
 [5]: https://github.com/johnny-jack19/hotel-db "Database Code"
 
+The static website is in the public folder.  The express server is for hosting purposes.
+
 The company page is broken down into 5 sections:
 1. Today: It lists the rooms(clickable) and displays if the room is booked and currently has someone in it. 
 You can "Check in" if someone is booked, "Check out" if the room is occupied, and "Book" if the 
