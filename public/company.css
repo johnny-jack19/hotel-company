@@ -1,517 +1,517 @@
 /* ----------------------------------------------General------------------------------------------- */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: rgb(60, 110, 113);
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
+  background-color: rgb(60, 110, 113);
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 button {
-    height: 2em;
-    width: 6em;
-    color: white;
-    font-size: 1em;
-    background-color: rgb(40, 75, 99);
-    border-radius: 20px;
-    margin: auto 5em;
-    cursor: pointer;
+  height: 2em;
+  width: 6em;
+  color: white;
+  font-size: 1em;
+  background-color: rgb(40, 75, 99);
+  border-radius: 20px;
+  margin: auto 5em;
+  cursor: pointer;
 }
 form {
-    background-color: rgb(217, 217, 217);
-    width: 70%;
-    font-size: 1.2em;
-    padding: .5em;
-    margin: 1em auto 1em auto;
-    border-radius: 10px;
+  background-color: rgb(217, 217, 217);
+  width: 70%;
+  font-size: 1.2em;
+  padding: 0.5em;
+  margin: 1em auto 1em auto;
+  border-radius: 10px;
 }
 fieldset {
-    width: 95%;
-    display: flex;
-    flex-wrap: wrap;
-    border: none;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
 }
 
 input {
-    height: 1.5em;
+  height: 1.5em;
 }
 label {
-    display: flex;
-    flex-direction: column;
-    margin: .5em 5%;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 5%;
 }
 
 h2 {
-    text-align: center;
-    background-color: rgb(53, 53, 53);
-    width: 110%;
-    margin-left: -5.7%;
-    margin-bottom: .5em;
-    padding: 1em 0;
-    color: white;
-    font-size: xx-large;
+  text-align: center;
+  background-color: rgb(53, 53, 53);
+  width: 110%;
+  margin-left: -5.7%;
+  margin-bottom: 0.5em;
+  padding: 1em 0;
+  color: white;
+  font-size: xx-large;
 }
 
-
 .tab {
-    padding-left: 10%;
-    width: 90%;
-    height: 100%;
+  padding-left: 10%;
+  width: 90%;
+  height: 100%;
 }
 /* ------------------------------------------------Nav--------------------------------------------- */
 .nav-tab {
-    font-size: x-large;
-    color: white;
-    width: 100%;
-    padding-top: 40%;
-    flex-grow: 1;
-    text-align: center;
-    border: 1px solid black;
-    cursor: pointer;
+  font-size: x-large;
+  color: white;
+  width: 100%;
+  padding-top: 40%;
+  flex-grow: 1;
+  text-align: center;
+  border: 1px solid black;
+  cursor: pointer;
 }
 nav {
-    background-color: rgb(40, 75, 99);
-    width: 9vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
+  background-color: rgb(40, 75, 99);
+  width: 9vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
 }
 
 #logo {
-    width: 9vw;
-    height: 7vw;
-    border: 2px solid black;
+  width: 9vw;
+  height: 7vw;
+  border: 2px solid black;
 }
 
 #logo img {
-    width: 9vw;
-    height: 7vw;
+  width: 9vw;
+  height: 7vw;
 }
 
 /* ------------------------------------------Booking----------------------------------------------- */
 .form-2 {
-    width: 40%;
+  width: 40%;
 }
 
 .form-1 {
-    width: 90%;
+  width: 90%;
 }
 
 .form-6 {
-    width: 15%
+  width: 15%;
 }
 
 .form-3 {
-    width: 25%;
-    margin: auto;
-    border: 1px black solid;
-    text-align: center;
-    font-size: 1em;
-    padding: .5em;
-    border-radius: 8px;
-    cursor: pointer;
+  width: 25%;
+  margin: auto;
+  border: 1px black solid;
+  text-align: center;
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 input[type="radio"] {
-    opacity: 0;
-    width: 0;
+  opacity: 0;
+  width: 0;
 }
 
-input[type="radio"]:checked + label{
-    color: white;
-    background-color: rgb(55, 104, 139);
+input[type="radio"]:checked + label {
+  color: white;
+  background-color: rgb(55, 104, 139);
 }
-
 
 input[type="submit"] {
-    color: white;
-    font-size: 1em;
-    height: 2em;
-    background-color: rgb(40, 75, 99);
-    width: 7em;
-    margin: .5em 5%;
-    border-radius: 5px;
-    cursor: pointer;
+  color: white;
+  font-size: 1em;
+  height: 2em;
+  background-color: rgb(40, 75, 99);
+  width: 7em;
+  margin: 0.5em 5%;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #avail-form {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 #booking-form {
-    margin: 2em auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    transform: translateY(-1em);
+  margin: 2em auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  transform: translateY(-1em);
 }
 
 .booking-info-modal {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .booking-info-modal div {
-    width: 30%;
-    font-size: 1.2em;
-    padding: .5em;
-    border: 1px solid black;
-    flex-grow: 1;
+  width: 30%;
+  font-size: 1.2em;
+  padding: 0.5em;
+  border: 1px solid black;
+  flex-grow: 1;
 }
 
 .check-row {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .check-row div {
-    flex-grow: 1;
-    width: 22%;
-    font-size: 1.2em;
-    padding: .5em;
-    text-align: center;
-    border: 1px solid black;
+  flex-grow: 1;
+  width: 22%;
+  font-size: 1.2em;
+  padding: 0.5em;
+  text-align: center;
+  border: 1px solid black;
 }
 
 #days-selected {
-    background-color: rgb(217, 217, 217);
-    width: 70%;
-    font-size: 1.2em;
-    padding: .5em;
-    margin: 1em auto 1em auto;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-around;
-    padding-top: .75em;
-    padding-bottom: .75em;
+  background-color: rgb(217, 217, 217);
+  width: 70%;
+  font-size: 1.2em;
+  padding: 0.5em;
+  margin: 1em auto 1em auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
 }
 
 #days-selected div {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 /* --------------------------------------------Today----------------------------------------------- */
 .room-card h3 {
-    background-color: rgb(53, 53, 53);
-    border-radius: 20px;
-    padding: .2em;
+  background-color: rgb(53, 53, 53);
+  border-radius: 20px;
+  padding: 0.2em;
 }
 
 #today {
-    width: 88%;
+  width: 88%;
 }
 
 #today-page {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .room-card {
-    margin: 1em auto;
-    border: solid black 1px;
-    color: white;
-    font-size: 2em;
-    line-height: 2em;
-    background-color: rgb(40, 75, 99);
-    text-align: center;
-    padding: 3% 11%;
-    cursor: pointer;
+  margin: 1em auto;
+  border: solid black 1px;
+  color: white;
+  font-size: 2em;
+  line-height: 2em;
+  background-color: rgb(40, 75, 99);
+  text-align: center;
+  padding: 3% 11%;
+  cursor: pointer;
 }
 
 /* --------------------------------------------Modal----------------------------------------------- */
 #overlay {
-    position: fixed;
-    z-index: 2;
-    background-color: black;
-    opacity: .7;
-    height: 100vh;
-    width: 100vw;
+  position: fixed;
+  z-index: 2;
+  background-color: black;
+  opacity: 0.7;
+  height: 100vh;
+  width: 100vw;
 }
 
 #modal {
-    width: 50vw;
-    min-height: 50vh;
-    background-color: rgb(217, 217, 217);
-    margin: auto;
-    position: fixed;
-    top: 25vh;
-    left: 25vw;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    z-index: 3;
+  width: 50vw;
+  min-height: 50vh;
+  background-color: rgb(217, 217, 217);
+  margin: auto;
+  position: fixed;
+  top: 25vh;
+  left: 25vw;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
 }
 
 #modal h3 {
-    background-color: rgb(40, 75, 99);
-    color: white;
-    border-radius: 5px 5px 0 0;
-    font-size: 2em;
-    padding: .5em;
-    text-align: center;
+  background-color: rgb(40, 75, 99);
+  color: white;
+  border-radius: 5px 5px 0 0;
+  font-size: 2em;
+  padding: 0.5em;
+  text-align: center;
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-size: 1.5em;
-    padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 1.5em;
+  padding: 1em;
 }
 
 .row div {
-    padding: 0;
-    margin: auto;
-    width: 30%;
+  padding: 0;
+  margin: auto;
+  width: 30%;
 }
 
 .customer-info-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-size: 1.5em;
-    padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 1.5em;
+  padding: 1em;
 }
 
 .customer-info-row div {
-    width: 45%;
+  width: 45%;
 }
 
 .customer-info-button {
-    align-self: center;
+  align-self: center;
 }
 
 .loading {
-    font-size: 2em;
-    text-align: center;
-    padding-top: 12vh;
+  font-size: 2em;
+  text-align: center;
+  padding-top: 12vh;
 }
 
 .button-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    font-size: 1.5em;
-    padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 1.5em;
+  padding: 1em;
 }
 
 .button-row button {
-    margin: auto;
+  margin: auto;
 }
 
 #modal.hidden {
-    display: none;
+  display: none;
 }
 
 .close {
-    position: fixed;
-    color: white;
-    background-color: rgb(53, 53, 53);
-    width: 2vw;
-    height: 2vw;
-    font-size: 1em;
-    border-radius: 5px;
-    margin: 0;
-    margin-left: 48vw;
+  position: fixed;
+  color: white;
+  background-color: rgb(53, 53, 53);
+  width: 2vw;
+  height: 2vw;
+  font-size: 1em;
+  border-radius: 5px;
+  margin: 0;
+  margin-left: 48vw;
 }
 
 #modal_book-form {
-    display: flex;
-    width: 100%;
-    padding: 0;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  width: 100%;
+  padding: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 #modal_book-form label {
-    margin: .15em auto;
-    width: 30%;
+  margin: 0.15em auto;
+  width: 30%;
 }
 
 /* -------------------------------------------Calendar--------------------------------------------- */
 #calendar {
-    width: 88%;
+  width: 88%;
 }
 
 #calendar_header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 #calendar_weekdays {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 #calendar_dates {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
 
 .month {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .day {
-    width: 13%;
-    border: solid black 1px;
-    border-radius: 8px;
-    height: 7em;
-    margin: .5em auto;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    box-shadow: 5px 5px 8px black;
+  width: 13%;
+  border: solid black 1px;
+  border-radius: 8px;
+  height: 7em;
+  margin: 0.5em auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  box-shadow: 5px 5px 8px black;
 }
 
 #calendar_header__month-year {
-    color: white;
-    font-size: 2em;
-    text-shadow: 2px 2px rgb(53, 53, 53);
-    margin: .5em;
+  color: white;
+  font-size: 2em;
+  text-shadow: 2px 2px rgb(53, 53, 53);
+  margin: 0.5em;
 }
 
 #calendar_weekdays {
-    color: white;
-    font-size: 1.5em;
-    margin: .5em;
-
+  color: white;
+  font-size: 1.5em;
+  margin: 0.5em;
 }
 
 .day-number {
-    color: white;
-    width: 50%;
-    padding-top: .5em;
-    font-size: 3em;
-    text-align: center;
-    border-radius: 8px 0 0 8px;
-    background-color: rgb(40, 75, 99);
+  color: white;
+  width: 50%;
+  padding-top: 0.5em;
+  font-size: 3em;
+  text-align: center;
+  border-radius: 8px 0 0 8px;
+  background-color: rgb(40, 75, 99);
+  cursor: pointer;
 }
 
 .day-vacant {
-    width: 50%;
-    font-weight: 600;
-    border-radius: 0 8px 8px 0;
-    background-color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  width: 50%;
+  font-weight: 600;
+  border-radius: 0 8px 8px 0;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .pad-date {
-    border: none;
-    background-color: rgb(217, 217, 217);
-    opacity: .2;
-    box-shadow: 1px 1px 2px black;
+  width: 13%;
+  border-radius: 8px;
+  height: 7em;
+  margin: 0.5em auto;
+  background-color: rgb(217, 217, 217);
+  opacity: 0.2;
+  box-shadow: 1px 1px 2px black;
 }
 
 .post-pad-date {
-    display: none;
+  display: none;
 }
 
 /* --------------------------------------------Look Up--------------------------------------------- */
 #look-up-form {
-    display: flex;
-    flex-wrap: wrap;
-    width: 60%;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #look-up-form label {
-    width: 25%;
-    font-size: 1.2em
+  width: 25%;
+  font-size: 1.2em;
 }
 
 #look-up-data {
-    width: 80%;
-    margin: auto;
-    background-color: rgb(217, 217, 217);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    border-radius: 8px;
-    padding: 1em;
+  width: 80%;
+  margin: auto;
+  background-color: rgb(217, 217, 217);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: 8px;
+  padding: 1em;
 }
 
 #look-up-data p {
-    width: 40%;
-    font-size: 1.5em;
-    padding: .5em;
+  width: 40%;
+  font-size: 1.5em;
+  padding: 0.5em;
 }
 
 .delete {
-    padding: .5em;
-    background-color: red;
-    width: 10em;
-    height: 3em;
-    font-size: 1.2em;
-    margin-top: 3em;
-    align-self: center;
+  padding: 0.5em;
+  background-color: red;
+  width: 10em;
+  height: 3em;
+  font-size: 1.2em;
+  margin-top: 3em;
+  align-self: center;
 }
 
 .warning {
-    background-color: red;
+  background-color: red;
 }
 /* --------------------------------------------Contacts-------------------------------------------- */
 #contact-container {
-    display: flex;
-    margin: auto;
-    width: 90%;
-    height: 90%;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  margin: auto;
+  width: 90%;
+  height: 90%;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .contact {
-    background-color: rgb(217, 217, 217);
-    width: 40%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1%;
-    padding: 1em;
-    justify-content: space-around;
-    box-shadow: 5px 5px 10px black;
-    border-radius: 10px;
+  background-color: rgb(217, 217, 217);
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1%;
+  padding: 1em;
+  justify-content: space-around;
+  box-shadow: 5px 5px 10px black;
+  border-radius: 10px;
 }
 
 .contact-title {
-    text-align: center;
-    font-size: 1.5em;
-    width: 75%;
-    padding: .3em;
-    font-style: italic;
-    font-weight: 600;
+  text-align: center;
+  font-size: 1.5em;
+  width: 75%;
+  padding: 0.3em;
+  font-style: italic;
+  font-weight: 600;
 }
 .contact-name {
-    text-align: center;
-    font-size: 1.2em;
-    width: 75%;
-    padding: .5em;
+  text-align: center;
+  font-size: 1.2em;
+  width: 75%;
+  padding: 0.5em;
 }
-
 
 /* hidden---------------------------------------------------------------------------------------------- */
 .hidden {
-    display: none;
+  display: none;
 }
